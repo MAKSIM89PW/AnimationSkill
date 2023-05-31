@@ -16,6 +16,8 @@
 		B94071712A278EBD00D04E2E /* loaderViewAnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94071702A278EBD00D04E2E /* loaderViewAnimationTests.swift */; };
 		B940717B2A278EBD00D04E2E /* loaderViewAnimationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940717A2A278EBD00D04E2E /* loaderViewAnimationUITests.swift */; };
 		B940717D2A278EBD00D04E2E /* loaderViewAnimationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940717C2A278EBD00D04E2E /* loaderViewAnimationUITestsLaunchTests.swift */; };
+		B940718C2A2792C000D04E2E /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940718B2A2792C000D04E2E /* CircularLoaderView.swift */; };
+		B940718E2A2795FE00D04E2E /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940718D2A2795FE00D04E2E /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		B94071762A278EBD00D04E2E /* loaderViewAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loaderViewAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B940717A2A278EBD00D04E2E /* loaderViewAnimationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loaderViewAnimationUITests.swift; sourceTree = "<group>"; };
 		B940717C2A278EBD00D04E2E /* loaderViewAnimationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loaderViewAnimationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B940718B2A2792C000D04E2E /* CircularLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
+		B940718D2A2795FE00D04E2E /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				B940715D2A278EBC00D04E2E /* ViewController.swift */,
+				B940718B2A2792C000D04E2E /* CircularLoaderView.swift */,
+				B940718D2A2795FE00D04E2E /* CustomImageView.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -276,7 +282,9 @@
 			files = (
 				B940715E2A278EBC00D04E2E /* ViewController.swift in Sources */,
 				B940715A2A278EBC00D04E2E /* AppDelegate.swift in Sources */,
+				B940718C2A2792C000D04E2E /* CircularLoaderView.swift in Sources */,
 				B940715C2A278EBC00D04E2E /* SceneDelegate.swift in Sources */,
+				B940718E2A2795FE00D04E2E /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
