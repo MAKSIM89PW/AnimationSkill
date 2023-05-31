@@ -99,9 +99,8 @@
 		B94071582A278EBC00D04E2E /* loaderViewAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				B94071592A278EBC00D04E2E /* AppDelegate.swift */,
-				B940715B2A278EBC00D04E2E /* SceneDelegate.swift */,
-				B940715D2A278EBC00D04E2E /* ViewController.swift */,
+				B940718A2A27925400D04E2E /* Animation */,
+				B94071892A27924700D04E2E /* App */,
 				B940715F2A278EBC00D04E2E /* Main.storyboard */,
 				B94071622A278EBD00D04E2E /* Assets.xcassets */,
 				B94071642A278EBD00D04E2E /* LaunchScreen.storyboard */,
@@ -125,6 +124,23 @@
 				B940717C2A278EBD00D04E2E /* loaderViewAnimationUITestsLaunchTests.swift */,
 			);
 			path = loaderViewAnimationUITests;
+			sourceTree = "<group>";
+		};
+		B94071892A27924700D04E2E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B94071592A278EBC00D04E2E /* AppDelegate.swift */,
+				B940715B2A278EBC00D04E2E /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B940718A2A27925400D04E2E /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				B940715D2A278EBC00D04E2E /* ViewController.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -28,13 +28,16 @@ class ViewController: UIViewController {
         view.addSubview(goButton)
         
         NSLayoutConstraint.activate([
-        
-        
-        
-        
+            goButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            goButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            goButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 
+    @objc private func goButtonTapped() {
+        print("tap")
+    }
 
 }
 
