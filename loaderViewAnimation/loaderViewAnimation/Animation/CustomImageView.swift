@@ -13,6 +13,9 @@ class CustomImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        contentMode = .scaleAspectFit
+        
         translatesAutoresizingMaskIntoConstraints = false
         progressIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -25,7 +28,7 @@ class CustomImageView: UIImageView {
             progressIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
-        let urlString =  "https://gagaru.club/uploads/posts/2023-02/1676362614_gagaru-club-p-milaya-kvoka-instagram-18.jpg"
+        let urlString =  "https://adonius.club/uploads/posts/2022-08/1660353821_4-adonius-club-p-kvoka-zhivotnoe-zhivotnie-krasivo-foto-4.jpg"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
         session.downloadTask(with: url)
@@ -43,6 +46,7 @@ extension CustomImageView: URLSessionDownloadDelegate {
         let image = UIImage(data: data)
         DispatchQueue.main.async {
             self.image = image
+            self.progressIndicatorView.reveal()
         }
     }
     
@@ -53,5 +57,4 @@ extension CustomImageView: URLSessionDownloadDelegate {
             self.progressIndicatorView.progress = CGFloat(progress)
         }
     }
-    
 }

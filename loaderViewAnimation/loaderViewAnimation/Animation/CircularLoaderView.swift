@@ -68,5 +68,32 @@ class CircularLoaderView: UIView {
     func сircularPath() -> UIBezierPath {
         UIBezierPath(ovalIn: circularFrame())
     }
+    
+    func reveal() {
+        backgroundColor = .clear
+        progress = 1
+        
+        сircularPathLayer.removeAnimation(forKey: "strokeEnd")
+        сircularPathLayer.removeFromSuperlayer()
+        superview?.layer.mask = сircularPathLayer
+         
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let finalRadius = sqrt((center.x*center.x) + (center.y*center.y))
+        
+        let radiusInset = finalRadius - сircularRadius
+        let outerRect = circularFrame().insetBy(dx: -radiusInset, dy: -radiusInset)
+        let toPath = UIBezierPath(ovalIn: outerRect).cgPath
+        
+        let fromPath = сircularPathLayer.path
+        let fromLineWidth = сircularPathLayer.lineWidth
+        
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        
+        сircularPathLayer.lineWidth = 2 * finalRadius
+        сircularPathLayer.path = toPath
+        CATransaction.commit()
+                                             
+    }
 }
 
