@@ -28,7 +28,7 @@ class CustomImageView: UIImageView {
         let urlString =  "https://gagaru.club/uploads/posts/2023-02/1676362614_gagaru-club-p-milaya-kvoka-instagram-18.jpg"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-        session.dataTask(with: url)
+        session.downloadTask(with: url)
             .resume()
     }
     
