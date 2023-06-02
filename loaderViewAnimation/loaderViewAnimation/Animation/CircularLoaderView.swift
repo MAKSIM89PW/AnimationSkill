@@ -76,7 +76,8 @@ class CircularLoaderView: UIView {
         сircularPathLayer.removeAnimation(forKey: "strokeEnd")
         сircularPathLayer.removeFromSuperlayer()
         superview?.layer.mask = сircularPathLayer
-         
+        
+         // x^2 + y^2 = r^2 уравнение окружеости
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let finalRadius = sqrt((center.x*center.x) + (center.y*center.y))
         
