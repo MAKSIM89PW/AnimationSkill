@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setConstraints()
+        navigationController?.delegate = self
     }
 
     private func setupViews() {
@@ -43,9 +44,9 @@ class ViewController: UIViewController {
         let secondViewController = SecondViewController()
         secondViewController.modalPresentationStyle = .custom
         secondViewController.transitioningDelegate = self
-        
-//        present(secondViewController, animated: true)
-        navigationController?.pushViewController(secondViewController, animated: true)
+    
+        present(secondViewController, animated: true)
+//        navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
 
@@ -73,5 +74,14 @@ extension ViewController {
             presentButton.heightAnchor.constraint(equalToConstant: 60),
             presentButton.widthAnchor.constraint(equalToConstant: 60)
         ])
+    }
+}
+
+extension ViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = operation == .push ? .present : .dismiss
+        transition.startingPoint = presentButton.center
+        transition.circleColor = operation == .pop ? .white : .orange
+        return transition
     }
 }
