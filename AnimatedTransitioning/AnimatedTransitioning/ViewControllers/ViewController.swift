@@ -14,10 +14,12 @@ class ViewController: UIViewController {
         button.backgroundColor = .orange
         button.setTitle("GO", for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(presentButtonTaped), for: .touchDragInside)
+        button.addTarget(self, action: #selector(presentButtonTaped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private var transition = CircularTransition()
     
     override func viewWillLayoutSubviews() {
         presentButton.layer.cornerRadius = presentButton.frame.width / 2
@@ -39,11 +41,28 @@ class ViewController: UIViewController {
     
     @objc private func presentButtonTaped() {
         let secondViewController = SecondViewController()
-        secondViewController.modalPresentationStyle = .fullScreen
-        present(secondViewController, animated: true)
+        secondViewController.modalPresentationStyle = .custom
+        secondViewController.transitioningDelegate = self
         
+//        present(secondViewController, animated: true)
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
+}
 
+extension ViewController : UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = presentButton.center
+        transition.circleColor = presentButton.backgroundColor!
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = presentButton.center
+        transition.circleColor = presentButton.backgroundColor!
+        return transition
+    }
 }
 
 extension ViewController {
@@ -53,7 +72,6 @@ extension ViewController {
             presentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             presentButton.heightAnchor.constraint(equalToConstant: 60),
             presentButton.widthAnchor.constraint(equalToConstant: 60)
-        
         ])
     }
 }

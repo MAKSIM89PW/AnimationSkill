@@ -46,6 +46,7 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
                 let viewCenter = presentedView.center
                 let viewSize = presentedView.frame.size
                 
+                circle = UIView()
                 circle.frame = frameForCircle(size: viewSize, startPoint: startingPoint)
                 circle.layer.cornerRadius = circle.frame.width / 2
                 circle.center = startingPoint
@@ -68,7 +69,25 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
                 }
             }
         } else {
-            
+            if let returnedView = transitionContext.view(forKey: .from) {
+                let viewSize = returnedView.frame.size
+                
+                circle.frame = frameForCircle(size: viewSize, startPoint: startingPoint)
+                circle.layer.cornerRadius = circle.frame.width / 2
+                circle.center = startingPoint
+                
+                UIView.animate(withDuration: duration) {
+                    self.circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                    returnedView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                    returnedView.center = self.startingPoint
+                    returnedView.alpha = 0
+                } completion: { success in
+                    returnedView.removeFromSuperview()
+                    self.circle.removeFromSuperview()
+                    
+                    transitionContext.completeTransition(success)
+                }
+            }
         }
     }
     
